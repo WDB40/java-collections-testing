@@ -1,0 +1,64 @@
+Types of Collections
+- Collection (Interfaces)
+    - List (Indexed)
+        - ArrayList
+        - LinkedList
+    - Set (Uniqueness)
+        - HashSet
+    - SortedSet (Sorted Uniqueness)
+        - TreeSet
+    - Queue (FIFO)
+        - PriorityQueue
+    - Deque (FIFO and LIFO)
+        - LinkedList
+        - ArrayDeque
+    - Map (Pairs)
+        - HashMap
+    - SortedMap (Sorted Pairs)
+        - TreeMap
+
+Interface vs Implementation
+- Interface
+    - Multiple data structures
+    - Functional characteristics
+    - Prefer as variable type
+    - Often has a popular implementation
+- Implementation
+    - Specific data structure
+    - Performance characteristics
+    - Concrete and instantiable
+
+Collection Behaviors
+- Collection inherits from Iterable interface
+- Methods in Collection interface
+    - size()
+    - isEmpty()
+    - add(element)
+    - addAll(collection)
+    - remove(element)
+    - removeAll(collection)
+    - retainAll(collection)
+    - contains(element)
+    - containsAll(collection)
+    - clear()
+
+Iteration Order
+
+- Key Features
+    - Lists are collections with iteration order
+        - Each value has an index, not a key, an index
+    - Methods
+        - void add(int index, Element element)
+        - Element get(int index)
+        - Element remove(int index)
+        - Element set(int index, Element element)
+        - boolean addAll(int index, Collection<? extends E> collection)
+        - int indexOf(Object o)
+        - int lastIndexOf(Object o)
+        - List<Element> subList(int fromIndex, int toIndex)
+            - Sublists are views over ranges of lists
+            - from is inclusive
+            - to is exclusive
+- Shipment Example
+
+- List Implementations
