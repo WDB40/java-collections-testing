@@ -26,4 +26,27 @@ public class ShipmentTest {
         assertThat(shipment, contains(ProductFixtures.floorPanel, ProductFixtures.window));
     }
 
+    @Test
+    public void shouldNotReplaceMissingItems() throws Exception {
+
+        shipment.add(ProductFixtures.window);
+
+        shipment.replace(ProductFixtures.door, ProductFixtures.floorPanel);
+
+        assertThat(shipment, contains(ProductFixtures.window));
+    }
+
+    @Test
+    public void shouldIdentifyVanRequirements() throws Exception {
+
+        shipment.add(ProductFixtures.door);
+        shipment.add(ProductFixtures.window);
+        shipment.add(ProductFixtures.floorPanel);
+
+        shipment.prepare();
+
+        assertThat(shipment.getLightVanProducts(), contains(ProductFixtures.window));
+        assertThat(shipment.getHeavyVanProducts(), contains(ProductFixtures.floorPanel, ProductFixtures.door));
+    }
+
 }

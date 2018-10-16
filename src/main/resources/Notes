@@ -56,7 +56,7 @@ Iteration Order
         - int indexOf(Object o)
         - int lastIndexOf(Object o)
         - List<Element> subList(int fromIndex, int toIndex)
-            - Sublists are views over ranges of lists
+            - Sub-lists are views over ranges of lists
             - from is inclusive
             - to is exclusive
 - Shipment Example
