@@ -12,7 +12,7 @@ public class ProductFixtures {
         bobs.products().add(floorPanel);
 
         kates.products().add(floorPanel);
-        kates.products().add(door);
+        kates.products().add(new Product("Wooden Door", 35));
     }
 
 }
