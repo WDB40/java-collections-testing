@@ -10,6 +10,7 @@ public class ProductFixtures {
     static{
         bobs.products().add(door);
         bobs.products().add(floorPanel);
+        bobs.products().add(window);
 
         kates.products().add(floorPanel);
         kates.products().add(new Product("Wooden Door", 35));
