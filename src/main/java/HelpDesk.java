@@ -1,10 +1,16 @@
 import java.util.ArrayDeque;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.function.Predicate;
 
+import static java.util.Comparator.*;
+
 public class HelpDesk {
 
-    private final Queue<Enquiry> enquiries = new ArrayDeque<>();
+    private final Comparator<Enquiry> BY_CATEGORY = comparing(Enquiry::getCategory);
+
+    private final Queue<Enquiry> enquiries = new PriorityQueue<>(BY_CATEGORY);
 
     public void enquire(Customer customer, final Category category){
 
@@ -27,6 +33,20 @@ public class HelpDesk {
 
     }
 
+    public void processAllEnquires(){
+
+        Enquiry enquiry;
+
+        while((enquiry = enquiries.peek()) != null){
+
+            if (enquiry.getCategory() == Category.PRINTER){
+                processPrinterEnquiry();
+            } else{
+                processGeneralEnquiry();
+            }
+        }
+    }
+
     private void processEnquiry(Predicate<Enquiry> predicate, String message) {
 
         final Enquiry enquiry = enquiries.peek();
@@ -45,10 +65,10 @@ public class HelpDesk {
 
         helpDesk.enquire(Customer.JACK, Category.PHONE);
         helpDesk.enquire(Customer.JILL, Category.PRINTER);
+        helpDesk.enquire(Customer.MARY, Category.COMPUTER);
 
-        helpDesk.processPrinterEnquiry();
-        helpDesk.processGeneralEnquiry();
-        helpDesk.processPrinterEnquiry();
+        helpDesk.processAllEnquires();
+
     }
 
 }
