@@ -8,10 +8,12 @@ public class Product {
     public static final Comparator<Product> BY_WEIGHT = comparing(Product::getWeight);
     public static final Comparator<Product> BY_NAME = comparing(Product::getName);
 
+    private final int id;
     private String name;
     private int weight;
 
-    public Product(String name, int weight){
+    public Product(final int id, String name, int weight){
+        this.id = id;
         this.name = name;
         this.weight = weight;
     }
@@ -52,5 +54,9 @@ public class Product {
     @Override
     public int hashCode() {
         return Objects.hash(name, weight);
+    }
+
+    public int getId() {
+        return id;
     }
 }
